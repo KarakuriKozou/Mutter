@@ -102,7 +102,6 @@ public class TravUtil {
 	 * @param source データ
 	 */
 	public static void traversal(Traveler traveler, Object source) {
-		String result = null;
 		boolean cont = false;
 		if (source == null) {
 			traveler.detectNull();
@@ -114,7 +113,6 @@ public class TravUtil {
 			traveler.detectNumber((Number) source);
 
 		} else if (source instanceof Boolean) {
-			result = source.toString();
 			traveler.detectBoolean((Boolean) source);
 
 		} else if (source.getClass().isArray()) {
