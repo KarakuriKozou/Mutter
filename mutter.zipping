@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="mutter" zippath="zip">
+		<!-- include -->
+
+		<include name="src/**/*"/>
+		<include name=".settings/**/*"/>
+		<include name="memo/**/*"/>
+
+		<!-- exclude -->
+		<exclude name="**/*.zip"/>
+		<exclude name="**/*.log"/>
+		<exclude name="**/*.cache"/>
+		<exclude name=".git/**/*"/>
+		<exclude name="target/**/*"/>
+		<exclude name="zip/**/*"/>
+		<exclude name="trash/**/*"/>
+
+		<exclude name="memo/memo.build/**/*"/>
+		<exclude name="memo/*.make/**/*"/>
+		<exclude name="memo/work/**/*"/>
+		<exclude name="**/*.reference"/>
+		<exclude name="**/*.chm"/>
+		<exclude name="memo/*.sted"/>
+</project>

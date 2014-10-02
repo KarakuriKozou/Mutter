@@ -1,0 +1,15 @@
+build
+/target
+lib
+*.zip
+*.log
+zip
+log
+/memo/mutter.sted
+/project
+/memo/*.make
+/memo/*.chm
+/memo/*.reference
+/memo/*.build
+work
+*.jar

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="mutter" default="package" basedir=".">
+	<property name="bin" location="target/classes"/>
+	<property name="src" location="src/main/java"/>
+	<property name="test" location="src/test/java"/>
+	<property name="doc" location="target/javadoc"/>
+	<property name="build" location="target"/>
+	<property name="version" value="1.0.0"/>
+	<property name="excludepackagenames" value="util.mutter.util"/>
+
+	<target name="package" depends="javadoc">
+		<jar jarfile="${build}/${ant.project.name}-${version}.jar">
+			<fileset dir="${bin}" excludes="${bin}/test,${bin}/junit"/>
+		</jar>
+		<jar jarfile="${build}/${ant.project.name}-sources-${version}.jar">
+			<fileset dir="${src}"/>
+		</jar>
+		<jar jarfile="${build}/${ant.project.name}-sources-test-${version}.jar">
+			<fileset dir="${test}"/>
+		</jar>
+		<jar jarfile="${build}/${ant.project.name}-doc-${version}.jar">
+			<fileset dir="${doc}"/>
+		</jar>
+	</target>
+
+	<target name="javadoc">
+		<javadoc access="protected" overview="${src}/overview.html"
+		author="true" destdir="${doc}" doctitle="${ant.project.name} API"
+		nodeprecated="false" nodeprecatedlist="false" noindex="false"
+		nonavbar="false" notree="false" excludepackagenames="${excludepackagenames}"
+		source="1.6" sourcepath="${src}" splitindex="true" use="true" version="true"
+		additionalparam="-encoding &quot;utf-8&quot; -charset &quot;utf-8&quot; "
+	/>
+	</target>
+</project>
