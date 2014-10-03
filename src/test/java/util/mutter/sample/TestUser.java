@@ -15,18 +15,20 @@ public class TestUser extends EventDrivenUser {
 	 * コンストラクタ
 	 * @param name 利用者名
 	 */
-	public TestUser(String name) {
+	public TestUser(final String name) {
 		this.name = name;
 		setMessageListener(new MessageListener() {
 			@Override
 			public void followFrom(Message message) {
 				String from = message.getFromSeatName();
-				System.out.println("自席が " + from + " からフォローされた。");
+				String to = message.getToSeatName();
+				System.out.println("自席 " + to + " が " + from + " からフォローされた。");
 			}
 			@Override
 			public void followTo(Message message) {
+				String seatname = getSeat().getName();
 				String to = message.getToSeatName();
-				System.out.println("別の部屋の自席の利用者が " + to + " をフォローした。");
+				System.out.println("別の部屋の自席 " + seatname + " の利用者 "+ name + " が " + to + " をフォローした。");
 			}
 			@Override
 			public void mutterFrom(Message message) {
@@ -35,7 +37,8 @@ public class TestUser extends EventDrivenUser {
 			}
 			@Override
 			public void mutterTo(Message message) {
-				System.out.println("別の部屋の自席の利用者がつぶやいた。");
+				String seatname = getSeat().getName();
+				System.out.println("別の部屋の自席 " + seatname + " の利用者 "+ name + " がつぶやいた。");
 			}
 			@Override
 			public void mutterAll(Message message) {
@@ -45,12 +48,14 @@ public class TestUser extends EventDrivenUser {
 			@Override
 			public void unfollowFrom(Message message) {
 				String from = message.getFromSeatName();
-				System.out.println("自席が " + from + " からフォロー解除された。");
+				String to = message.getToSeatName();
+				System.out.println("自席 " + to + " が " + from + " からフォロー解除された。");
 			}
 			@Override
 			public void unfollowTo(Message message) {
 				String to = message.getToSeatName();
-				System.out.println("別の部屋の自席の利用者が " + to + " をフォロー解除した。");
+				String seatname = getSeat().getName();
+				System.out.println("別の部屋の自席 " + seatname + " の利用者が " + to + " をフォロー解除した。");
 			}
 		});
 	}

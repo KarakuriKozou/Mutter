@@ -244,7 +244,7 @@ public final class Room {
 	 * 廊下を部屋に設定します。
 	 * @param passageWay 廊下
 	 */
-	protected void addPassageWay(PassageWay passageWay) {
+	public void addPassageWay(PassageWay passageWay) {
 		synchronized (passageways) {
 			this.passageways.add(passageWay);
 			passageWay.setRoom(this);
@@ -254,7 +254,7 @@ public final class Room {
 	 * 廊下を部屋から撤去します。
 	 * @param passageWay 廊下
 	 */
-	protected void removePassageWay(PassageWay passageWay) {
+	public void removePassageWay(PassageWay passageWay) {
 		synchronized (passageways) {
 			this.passageways.remove(passageWay);
 			passageWay.setRoom(null);
